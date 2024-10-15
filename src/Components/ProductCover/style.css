@@ -1,0 +1,23 @@
+.single {
+    background-color: #F9FAFC;
+}
+
+.single-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #313237;
+}
+
+.single-cover {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.single-cover, .single-cover img {
+    border-radius: 15px;
+    margin-top: 5px;
+    width: 100%;
+    object-fit: cover;
+}

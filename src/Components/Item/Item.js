@@ -35,7 +35,7 @@ const Item = () => {
                 <button onClick={() => console.log("Increase quantity")}>
                     <PlusSignCircleIcon size={20} color="#333" />
                 </button>
-                <input type="text"/>
+                <input type="text" value={1} readOnly/>
                 <button onClick={() => console.log("Decrease quantity")}>
                     <RemoveCircleIcon size={20} color="#333" />
                 </button>
