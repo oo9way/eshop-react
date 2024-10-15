@@ -17,32 +17,29 @@ const Item = () => {
                 </div>
                 <div className="item-info">
                     <div className="item-title">
-                        Eleven Water
+                        Eleven Water S qwjdn qwjdnqiwj nw
                     </div>
                     <div className="item-price">
                         $19.99
                     </div>
                 </div>
             </div>
-            <button className="item-add-cart-btn" onClick={updateToggle}>
-                <ShoppingBasketAdd01Icon className={"add-icon"} size={18} color={"#9CA0AF"}/>
-                <p>
-                    Add to cart
-                </p>
-            </button>
-            {
-                toggle && (
-                    <div className="item-actions">
-                        <button className="">
-                            <PlusSignCircleIcon size={20} color={"#9CA0AF"}/>
-                        </button>
-                        <input type="text"/>
-                        <button className="">
-                            <RemoveCircleIcon size={20} color={"#9CA0AF"}/>
-                        </button>
-                    </div>
-                )
-            }
+            {!toggle && (
+                <button className="item-add-cart-btn" onClick={updateToggle}>
+                    <ShoppingBasketAdd01Icon className="add-icon" size={18} color="#9CA0AF" />
+                    <p>Add to cart</p>
+                </button>
+            )}
+
+            <div className={`item-actions ${toggle ? 'show' : ''}`}>
+                <button onClick={() => console.log("Increase quantity")}>
+                    <PlusSignCircleIcon size={20} color="#333" />
+                </button>
+                <input type="text"/>
+                <button onClick={() => console.log("Decrease quantity")}>
+                    <RemoveCircleIcon size={20} color="#333" />
+                </button>
+            </div>
         </div>
     )
 }

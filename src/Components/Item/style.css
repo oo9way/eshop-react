@@ -1,3 +1,7 @@
+.item-container {
+    height: 220px;
+}
+
 .item {
     width: 100%;
     background-color: #F9FAFC;
@@ -17,6 +21,10 @@
     letter-spacing: 0.2px;
     color: #9CA0AF;
     padding-bottom: 3px;
+    white-space: nowrap;        /* Prevents line breaks */
+    overflow: hidden;           /* Hides overflow text */
+    text-overflow: ellipsis;    /* Adds "..." at the end of the line */
+    width: 100%;
 }
 
 .item-price {
@@ -37,8 +45,8 @@
     background-color: transparent;
     cursor: pointer;
     font-size: 12px;
-    transition: background-color 0.3s ease;
     border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
 .item-add-cart-btn p{
@@ -58,8 +66,19 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
-    max-width: 150px;
-    margin: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+}
+
+.item-actions.show {
+    max-height: 70px; /* Set to a comfortable height for the content */
+    opacity: 1;
+    visibility: visible;
 }
 
 .item-actions input {
@@ -82,10 +101,19 @@
     height: 30px;
     font-size: 20px;
     font-weight: bold;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f0f0f0;
+    background-color: transparent;
+    color: white;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.1s ease;
+}
+
+.item-actions button:first-child:active{
+    background-color: #8ac926 !important;
+}
+
+.item-actions button:last-child:active{
+    background-color: #da4550 !important;
 }
 

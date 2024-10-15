@@ -14,6 +14,10 @@ const ItemsContainer = () => {
                <Item />
                <Item />
                <Item />
+               <Item />
+               <Item />
+               <Item />
+               <Item />
            </div>
         </div>
     )
