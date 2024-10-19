@@ -1,18 +1,19 @@
 import Header from '../Components/Header/Header';
-import SearchBar from '../Components/SearchBar/SearchBar';
 import ItemsContainer from "../Components/ItemsContainer/ItemsContainer";
 import CategoryContainer from '../Components/CategoryContainer/CategoryContainer';
 
 
 function Home() {
-  return (
+
+
+    return (
     <div className="wrapper">
         <Header />
-        <SearchBar />
+        {/*<SearchBar />*/}
         <CategoryContainer />
         <ItemsContainer />
     </div>
-  );
+);
 }
 
 export default Home;

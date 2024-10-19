@@ -1,5 +1,5 @@
 .item-container {
-    height: 220px;
+    height: 250px;
 }
 
 .item {
@@ -7,6 +7,8 @@
     background-color: #F9FAFC;
     border-radius: 20px;
     padding: 1rem;
+    display: block;
+    text-decoration: none;
 }
 
 .item img {

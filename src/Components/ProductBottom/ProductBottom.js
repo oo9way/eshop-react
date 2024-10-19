@@ -1,26 +1,25 @@
 import "./style.css";
 
-const ProductBottom = () => {
+const ProductBottom = ({product}) => {
     
     return (
         <div className="container single-bottom">
             <div>
                 <div className="bottom-title">
-                    Nike Air Max 270
+                    {product && product.product_name}
                 </div>
                 <div className="bottom-cat">
-                    men shoes
+                    #{product && product.barcode}
                 </div>
 
-                <div className="description">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                </div>
+                <div className={"description"} dangerouslySetInnerHTML={{__html: product.description}}></div>
             </div>
             <div className="bottom-actions">
                 <div className="bottom-price">
                     <span>Price:</span>
-                    <p>$290.00</p>
+                    <p>{
+                        product && product.sell_cost_uzs && product.sell_cost_uzs.toLocaleString()
+                    }</p>
                 </div>
                 <button className="bottom-add-cart">
                     Add to cart

@@ -1,15 +1,13 @@
-import { Fragment } from "react";
 import "./style.css";
 
-const CategoryItem = () => {
-    const pic = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Sport_balls.svg/400px-Sport_balls.svg.png"
-    
+const CategoryItem = ({category}) => {
+    const {id, name, image} = category;
     return (
         <div>
-            <a href="#" className="category-item">
-                <img src={pic} className="category-cover" />
+            <a href={id} className="category-item">
+                <img src={image} className="category-cover"  alt={name}/>
                 <div className="category-title">
-                    Sports asdkmaslk dmaslkd mlkas
+                    {name}
                 </div>
             </a>
         </div>
