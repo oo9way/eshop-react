@@ -3,7 +3,7 @@ import Item from "../Item/Item";
 import { useState, useEffect } from "react";
 import apiService from "../../Services/apiService";
 
-const ItemsContainer = () => {
+const ItemsContainer = ({addToCart, removeFromCart, cart}) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -34,7 +34,7 @@ const ItemsContainer = () => {
                 </div>
                 <div className="items-container">
                     {products.map((product)=> (
-                        <Item key={product.id} product={product}/>
+                        <Item key={product.id} addToCart={addToCart} removeFromCart={removeFromCart} cart={cart} product={product}/>
                     ))}
                 </div>
             </div>

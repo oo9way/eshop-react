@@ -1,14 +1,24 @@
 import "./style.css";
 import { ShoppingBasketAdd01Icon, PlusSignCircleIcon, RemoveCircleIcon } from "hugeicons-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 
-const Item = ({product}) => {
+const Item = ({addToCart, removeFromCart, cart, product}) => {
     const {id, image_url, sell_cost_uzs, product_name} = product;
+    const [qty, setQty] = useState(1);
     const [toggle, setToggle] = useState(false)
+
     const updateToggle = () => {
         setToggle(!toggle)
     }
+
+    useEffect(() => {
+        if (cart.find(item => item.product_id === id)) {
+            setQty(cart.find(item => item.product_id === id).quantity);
+        }else{
+            setQty(0);
+        }
+    }, [cart, id]);
     return (
         <div className="item-container">
             <Link to={`/product/${id}`} className={"item"}>
@@ -34,11 +44,11 @@ const Item = ({product}) => {
             )}
 
             <div className={`item-actions ${toggle ? 'show' : ''}`}>
-                <button onClick={() => console.log("Increase quantity", {id})}>
+                <button onClick={() => addToCart(id)}>
                     <PlusSignCircleIcon size={20} color="#333" />
                 </button>
-                <input type="text" value={1} readOnly/>
-                <button onClick={() => console.log("Decrease quantity", {id})}>
+                <input type="text" value={qty} readOnly/>
+                <button onClick={() => removeFromCart(id)}>
                     <RemoveCircleIcon size={20} color="#333" />
                 </button>
             </div>
