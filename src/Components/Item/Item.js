@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import {Link} from "react-router-dom";
 
 const Item = ({addToCart, removeFromCart, cart, product}) => {
-    const {id, image_url, sell_cost_uzs, product_name} = product;
-    const [qty, setQty] = useState(1);
+    const {product_id, image, quantity, sell_cost, name} = product;
+    const [qty, setQty] = useState(0);
     const [toggle, setToggle] = useState(false)
 
     const updateToggle = () => {
@@ -13,26 +13,33 @@ const Item = ({addToCart, removeFromCart, cart, product}) => {
     }
 
     useEffect(() => {
-        if (cart.find(item => item.product_id === id)) {
-            setQty(cart.find(item => item.product_id === id).quantity);
+        if (quantity){
+            setQty(quantity);
         }else{
-            setQty(0);
+            cart.find(item => item.product_id === product_id) && setQty(cart.find(item => item.product_id === product_id).quantity);
         }
-    }, [cart, id]);
+
+        if (quantity !== 0){
+            setToggle(true);
+        }else{
+            setToggle(false);
+        }
+
+    }, [product, quantity, product_id, cart]);
     return (
         <div className="item-container">
-            <Link to={`/product/${id}`} className={"item"}>
+            <Link to={`/product/${product_id}`} className={"item"}>
                 <div className="item-image">
                     <img
-                        src={image_url}
-                        alt={product_name}/>
+                        src={image}
+                        alt={name}/>
                 </div>
                 <div className="item-info">
                     <div className="item-title">
-                        {product_name}
+                        {name}
                     </div>
                     <div className="item-price">
-                        {sell_cost_uzs.toLocaleString()}
+                        {sell_cost && sell_cost.toLocaleString()}
                     </div>
                 </div>
             </Link>
@@ -44,11 +51,11 @@ const Item = ({addToCart, removeFromCart, cart, product}) => {
             )}
 
             <div className={`item-actions ${toggle ? 'show' : ''}`}>
-                <button onClick={() => addToCart(id)}>
+                <button onClick={() => addToCart(product_id, image, name, sell_cost)}>
                     <PlusSignCircleIcon size={20} color="#333" />
                 </button>
                 <input type="text" value={qty} readOnly/>
-                <button onClick={() => removeFromCart(id)}>
+                <button onClick={() => removeFromCart(product_id)}>
                     <RemoveCircleIcon size={20} color="#333" />
                 </button>
             </div>

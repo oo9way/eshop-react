@@ -24,7 +24,6 @@ const AuthService = {
     getToken: () => {
         let token =  localStorage.getItem("token");
         if (!token) {
-            console.log("No token found, logging in");
             AuthService.login("bot", "Asd*-");
         }
         return token;

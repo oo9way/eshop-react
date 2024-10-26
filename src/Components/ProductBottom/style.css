@@ -56,12 +56,35 @@
 }
 
 .bottom-add-cart{
+    display: inline-block;
     background-color: #FF7269;
-    border-radius: 18px;
+    border-radius: 14px;
     color: white;
     border: none;
     font-size: 15px;
     font-weight: 600;
     text-transform: capitalize;
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.counter-items {
+    display: grid;
+    gap: 5px;
+    width: 100%;
+    grid-template-columns: 20% 55% 20%;
+    grid-template-rows: 35px;
+}
+
+.counter-items button, .counter-items input {
+    background-color: white;
+    border: none;
+    border-radius: 7px;
+    outline: none;
+    text-align: center;
+}
+
+.counter-items button {
     cursor: pointer;
 }

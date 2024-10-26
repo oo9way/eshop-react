@@ -1,17 +1,18 @@
 import "./style.css";
 import { ShoppingCart01Icon } from "hugeicons-react";
+import {Link} from "react-router-dom";
 
 
 const Header = () => {
     return (
         <div className="header">
-            <div className="brand-logo">
+            <Link to={"/"} className="brand-logo">
                 Eleven Water
-            </div>
+            </Link>
 
-            <div className="cart-icon">
+            <Link to={"/cart"} className="cart-icon">
                     <ShoppingCart01Icon size={32} color={"#fff"}/>
-            </div>
+            </Link>
 
         </div>
     )

@@ -6,7 +6,7 @@ import ProductBottom from '../Components/ProductBottom/ProductBottom';
 import {useEffect, useState} from "react";
 import apiService from "../Services/apiService";
 
-function Detail() {
+function Detail({AddOrIncreaseProduct, RemoveOrDecreaseProduct, cart}) {
     let {product_id} = useParams();
 
     const [product, setProduct] = useState([]);
@@ -32,7 +32,7 @@ function Detail() {
             {loading && <div className="loading">Loading...</div>}
             {error && <div className="error">{error}</div>}
             <ProductCover title={product.product_name} url={product.image_url}/>
-            <ProductBottom product={product}/>
+            <ProductBottom AddOrIncreaseProduct={AddOrIncreaseProduct} RemoveOrDecreaseProduct={RemoveOrDecreaseProduct} product={product} cart={cart}/>
         </div>
     );
 }

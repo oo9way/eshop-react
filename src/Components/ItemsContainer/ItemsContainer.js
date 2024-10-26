@@ -34,7 +34,21 @@ const ItemsContainer = ({addToCart, removeFromCart, cart}) => {
                 </div>
                 <div className="items-container">
                     {products.map((product)=> (
-                        <Item key={product.id} addToCart={addToCart} removeFromCart={removeFromCart} cart={cart} product={product}/>
+                        <Item
+                            key={product.id}
+                            addToCart={addToCart}
+                            removeFromCart={removeFromCart}
+                            cart={cart}
+                            product={
+                                {
+                                    product_id: product.id,
+                                    image: product.image_url,
+                                    quantity: null,
+                                    sell_cost: product.sell_cost_uzs,
+                                    name: product.product_name
+                                }
+                            }
+                        />
                     ))}
                 </div>
             </div>
