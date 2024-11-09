@@ -1,6 +1,5 @@
 import Header from '../Components/Header/Header';
 import Item from "../Components/Item/Item";
-import OrderButton from "../Components/OrderButton/OrderButton";
 import React from "react";
 
 
@@ -22,7 +21,7 @@ function Cart({cart, addToCart, removeFromCart}) {
                               product={product}/>
                     ))}
                 </div>
-                <OrderButton />
+                {/*<OrderButton />*/}
             </div>
 
         </div>

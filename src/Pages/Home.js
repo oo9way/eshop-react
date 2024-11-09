@@ -8,7 +8,7 @@ function Home({AddOrIncreaseProduct, RemoveOrDecreaseProduct, cart}) {
     <div className="wrapper">
         <Header />
         {/*<SearchBar />*/}
-        <CategoryContainer />
+        {/*<CategoryContainer />*/}
         <ItemsContainer addToCart={AddOrIncreaseProduct} removeFromCart={RemoveOrDecreaseProduct} cart={cart}/>
     </div>
 );
